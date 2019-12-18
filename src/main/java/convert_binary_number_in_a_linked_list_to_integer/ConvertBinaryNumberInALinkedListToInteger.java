@@ -50,27 +50,21 @@ public class ConvertBinaryNumberInALinkedListToInteger {
     }
 
     public int getDecimalValue(ListNode head) {
-        ListNode current = head;
-        int decimalVal;
         StringBuilder sb = new StringBuilder();
 
-        while (current.next != null) {
-            decimalVal = current.val;
-            sb.append(decimalVal);
-            current = current.next;
+        while (head.next != null) {
+            sb.append(head.val);
+            head = head.next;
         }
-        sb.append(current.val);
+        sb.append(head.val);
 
-        decimalVal = Integer.parseInt(sb.toString(), 2);
-
-        return decimalVal;
+        return Integer.parseInt(sb.toString(), 2);
     }
 }
 
 class ListNode {
     int val;
     ListNode next;
-
     ListNode(int x) {
         val = x;
     }
