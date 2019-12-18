@@ -20,35 +20,14 @@ public class SubtractTheProductAndSumOfDigitsOfAnInteger {
 	}
 
 	public int subtractProductAndSum(int n) {
-		int number = n;
-		int product = 0, sum = 0, result = 0;
-		String temp = Integer.toString(number);
-		int[] digits = new int[temp.length()];
+		int product = 1, sum = 0, tmp;
+		String temp = Integer.toString(n);
 
 		for (int i = 0; i < temp.length(); i++) {
-			digits[i] = temp.charAt(i) - '0';
+			tmp = temp.charAt(i) - '0';
+			product *= tmp;
+			sum += tmp;
 		}
-
-		for (int i = 0; i <= digits.length; i++) {
-			// 첫 숫자 셋팅
-			if (i == 0) {
-				product = digits[i];
-				sum = digits[i];
-				continue;
-			}
-
-			if (i == digits.length) {
-				// 곱한 값 - 더한 값
-				result = product - sum;
-				break;
-			}
-
-			// 곱하기
-			product = product * digits[i];
-			// 더하기
-			sum = sum + digits[i];
-
-		}
-		return result;
+		return product - sum;
 	}
 }
