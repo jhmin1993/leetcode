@@ -2,9 +2,10 @@ package defanging_an_ip_address;
 
 public class DefangingAnIpAddress {
     public static void main(String[] args) {
-        DefangingAnIpAddress defangingAnIpAddress = new DefangingAnIpAddress()  ;
+        DefangingAnIpAddress defangingAnIpAddress = new DefangingAnIpAddress();
         System.out.println(defangingAnIpAddress.defangIPaddr("1.1.1.1"));
     }
+    
     public String defangIPaddr(String address) {
         StringBuilder resultAddr = new StringBuilder();
         String[] addrArr = address.split("\\.");
