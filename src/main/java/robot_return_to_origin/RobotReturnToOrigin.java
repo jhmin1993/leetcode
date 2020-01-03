@@ -32,23 +32,14 @@ public class RobotReturnToOrigin {
 
 		for (int i = 0; i < act.length; i++) {
 			switch (act[i]) {
-			case "R":
-				rl++;
-				break;
-			case "L":
-				rl--;
-				break;
-			case "U":
-				ud++;
-				break;
-			case "D":
-				ud--;
-				break;
+			case "R": rl++; break;
+			case "L": rl--; break;
+			case "U": ud++; break;
+			case "D": ud--; break;
 			}
 		}
 
-		if (rl == 0 && ud == 0)
-			return true;
+		if (rl == 0 && ud == 0) return true;
 
 		return false;
 	}
