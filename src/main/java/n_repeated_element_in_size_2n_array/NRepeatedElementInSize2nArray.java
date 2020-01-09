@@ -3,6 +3,8 @@ package n_repeated_element_in_size_2n_array;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashSet;
+import java.util.Set;
 
 public class NRepeatedElementInSize2nArray {
 	public static void main(String[] args) throws IOException {
@@ -36,28 +38,11 @@ public class NRepeatedElementInSize2nArray {
 	}
 	
     public int repeatedNTimes(int[] A) {
-    	int N = A.length / 2;
-    	int[] tmp = new int[A.length];
+    	Set<Integer> set = new HashSet<>();
     	
-    	int resultInt = 0;
-   
-    	for(int i = 0; i < A.length; i++) {
-    		int repeatCnt = 0;
-    		for(int j = 0; j < A.length; j++) {
-    			if(A[i] == A[j]) repeatCnt++;
-    		}	
-    		tmp[i] = repeatCnt;
+    	for(int val : A) {
+    		if(!set.add(val)) return val;
     	}
-    	
-    	for(int index = 0; index < tmp.length; index++) {
-    		if(N == tmp[index]) {
-	    		for(int i = 0; i < A.length; i++) {
-	    			if(index == i) resultInt = A[i];
-	    			if(resultInt != 0) break;
-	    		}
-    		}
-    	}
-    	
-		return resultInt;    
+    	return -1;   
     }
 }
